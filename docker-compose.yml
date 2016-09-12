@@ -1,0 +1,14 @@
+version: '2'
+services:
+  stub:
+    image: sg248351/stub
+    ports:
+      - "4414"
+    environment:
+      - LICENSE=accept
+  mq:
+    image: sg248351/eventqm
+    ports:
+      - "1414"
+    environment:
+      - LICENSE=accept
