@@ -14,7 +14,7 @@ services:
 
   sgw:
     build: ./
-    image: sg248351/secure-gateway-client:sc3
+    image: sg248351/secure-gateway-client
     depends_on:
       - stub
     command: [RO0bWJGRthy_prod_ng, -F, /tmp/aclfile.txt, --sectoken, eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb25maWd1cmF0aW9uX2lkIjoiUk8wYldKR1J0aHlfcHJvZF9uZyIsInJlZ2lvbiI6InVzLXNvdXRoIiwiaWF0IjoxNDcyNTcwMTcxLCJleHAiOjE0ODAzNDYxNzF9.K3brKBUvo82LcS2ct_qYtCZf4GNUAZZceq3rcy4BG5w]
