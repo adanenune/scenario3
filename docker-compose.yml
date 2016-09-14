@@ -8,6 +8,7 @@ services:
     image: sg248351/eventqm
     ports:
       - "5672"
+      - "1414"
     environment:
       - LICENSE=${LICENSE}
     networks:
