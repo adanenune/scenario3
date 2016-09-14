@@ -7,7 +7,7 @@ services:
   mq:
     image: sg248351/eventqm
     ports:
-      - "5672:5672"
+      - "5672"
     environment:
       - LICENSE=${LICENSE}
     networks:
@@ -19,9 +19,9 @@ services:
     depends_on:
       - mq
     ports:
-      - "1414:1414"
-      - "4414:4414"
-      - "7800:7800"
+      - "1414"
+      - "4414"
+      - "7800"
     environment:
       - LICENSE=${LICENSE}
     networks:
