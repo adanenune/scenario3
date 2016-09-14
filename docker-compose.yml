@@ -33,8 +33,8 @@ services:
   # Creating the SG service buy building the image on the fly,
   # with the Secure Gateway info stored in environment variables
   # and using the Dockerfile and ACL file downloaded from GitHub.
-  sgw:
-    build: ./
+  sgc:
+    build: 99_docker/sgc/
     image: sg248351/secure-gateway-client
     depends_on:
       - mq
