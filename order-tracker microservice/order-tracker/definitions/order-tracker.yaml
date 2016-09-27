@@ -1,0 +1,965 @@
+paths:
+  '/Orders/{id}/events/{fk}':
+    get:
+      tags:
+        - Order
+      summary: Find a related item by id for events.
+      operationId: Order.prototype.__findById__events
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for events
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    delete:
+      tags:
+        - Order
+      summary: Delete a related item by id for events.
+      operationId: Order.prototype.__destroyById__events
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for events
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Order
+      summary: Update a related item by id for events.
+      operationId: Order.prototype.__updateById__events
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for events
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  '/Orders/{id}/events':
+    get:
+      tags:
+        - Order
+      summary: Queries events of Order.
+      operationId: Order.prototype.__get__events
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    post:
+      tags:
+        - Order
+      summary: Creates a new instance in events of this model.
+      operationId: Order.prototype.__create__events
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    delete:
+      tags:
+        - Order
+      summary: Deletes all events of this model.
+      operationId: Order.prototype.__delete__events
+      parameters:
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Orders/{id}/events/count':
+    get:
+      tags:
+        - Order
+      summary: Counts events of Order.
+      operationId: Order.prototype.__count__events
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Orders:
+    post:
+      tags:
+        - Order
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Order.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+    put:
+      tags:
+        - Order
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Order.upsert__put_Orders
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+    patch:
+      tags:
+        - Order
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Order.upsert__patch_Orders
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+    get:
+      tags:
+        - Order
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Order.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+      deprecated: false
+  /Orders/replaceOrCreate:
+    post:
+      tags:
+        - Order
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Order.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+  /Orders/upsertWithWhere:
+    post:
+      tags:
+        - Order
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: Order.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+  '/Orders/{id}/exists':
+    get:
+      tags:
+        - Order
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Order.exists__get_Orders_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Orders/{id}':
+    head:
+      tags:
+        - Order
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Order.exists__head_Orders_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Order
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Order.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+    delete:
+      tags:
+        - Order
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Order.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Order
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Order.prototype.updateAttributes__put_Orders_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+    patch:
+      tags:
+        - Order
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Order.prototype.updateAttributes__patch_Orders_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+  '/Orders/{id}/replace':
+    post:
+      tags:
+        - Order
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: Order.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+  /Orders/findOne:
+    get:
+      tags:
+        - Order
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Order.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Order'
+      deprecated: false
+  /Orders/update:
+    post:
+      tags:
+        - Order
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Order.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /Orders/count:
+    get:
+      tags:
+        - Order
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Order.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /OrderEvents:
+    post:
+      tags:
+        - OrderEvent
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: OrderEvent.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    put:
+      tags:
+        - OrderEvent
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: OrderEvent.upsert__put_OrderEvents
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    patch:
+      tags:
+        - OrderEvent
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: OrderEvent.upsert__patch_OrderEvents
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    get:
+      tags:
+        - OrderEvent
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: OrderEvent.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  /OrderEvents/replaceOrCreate:
+    post:
+      tags:
+        - OrderEvent
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: OrderEvent.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  /OrderEvents/upsertWithWhere:
+    post:
+      tags:
+        - OrderEvent
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: OrderEvent.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  '/OrderEvents/{id}/exists':
+    get:
+      tags:
+        - OrderEvent
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'OrderEvent.exists__get_OrderEvents_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/OrderEvents/{id}':
+    head:
+      tags:
+        - OrderEvent
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'OrderEvent.exists__head_OrderEvents_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - OrderEvent
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: OrderEvent.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    delete:
+      tags:
+        - OrderEvent
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: OrderEvent.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - OrderEvent
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'OrderEvent.prototype.updateAttributes__put_OrderEvents_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+    patch:
+      tags:
+        - OrderEvent
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'OrderEvent.prototype.updateAttributes__patch_OrderEvents_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  '/OrderEvents/{id}/replace':
+    post:
+      tags:
+        - OrderEvent
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: OrderEvent.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  /OrderEvents/findOne:
+    get:
+      tags:
+        - OrderEvent
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: OrderEvent.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      deprecated: false
+  /OrderEvents/update:
+    post:
+      tags:
+        - OrderEvent
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: OrderEvent.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/OrderEvent'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /OrderEvents/count:
+    get:
+      tags:
+        - OrderEvent
+      summary: Count instances of the model matched by where from the data source.
+      operationId: OrderEvent.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /MessageConsumers/start:
+    post:
+      tags:
+        - MessageConsumer
+      operationId: MessageConsumer.startPolling
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              state:
+                type: object
+      deprecated: false
+definitions:
+  x-any:
+    properties: {}
+  OrderEvent:
+    properties:
+      eventId:
+        type: number
+        format: double
+      time:
+        type: string
+        format: date
+      type:
+        type: string
+      orderId:
+        type: number
+        format: double
+    required:
+      - eventId
+      - time
+      - type
+    additionalProperties: false
+  Order:
+    properties:
+      customerId:
+        type: number
+        format: double
+      description:
+        type: string
+      orderId:
+        type: number
+        format: double
+    required:
+      - customerId
+      - orderId
+    additionalProperties: false
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: order-tracker
+  version: 2.0.0
+  title: Order Tracker
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'https://apiconnect-a75ddbb3-8cba-4c04-9317-511b2ad58e8a.cmarcoliukibmcom-sandpit.apic.eu-gb.mybluemix.net'
+        invoke-tls-profile: 'client:Loopback-client'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
+          tls-profile: $(invoke-tls-profile)
+  properties:
+    runtime-url:
+      value: ''
+      description: ''
+      encoded: false
+    invoke-tls-profile:
+      value: ''
+      description: ''
+      encoded: false

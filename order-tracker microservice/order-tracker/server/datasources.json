@@ -1,0 +1,7 @@
+{
+  "mongoDB": {
+    "url": "mongodb://order-tracker-app:RedB00k@sl-us-dal-9-portal.2.dblayer.com:15113,sl-us-dal-9-portal.1.dblayer.com:15113/oder-tracker?ssl=true",
+    "name": "mongoDB",
+    "connector": "mongodb"
+  }
+}

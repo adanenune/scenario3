@@ -1,0 +1,33 @@
+{
+  "name": "Order",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "customerId": {
+      "type": "number",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "orderId": {
+      "type": "number",
+      "id": true,
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "events": {
+      "type": "hasMany",
+      "model": "OrderEvent",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
