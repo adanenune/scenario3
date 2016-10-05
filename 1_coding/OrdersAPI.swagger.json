@@ -1,0 +1,131 @@
+{
+  "definitions" : {
+    "postOrderRequest" : {
+      "type" : "object",
+      "properties" : {
+        "accountName" : {
+          "type" : "string"
+        },
+        "lineItems" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "productId" : {
+                "type" : "string"
+              },
+              "quantity" : {
+                "type" : "integer"
+              },
+              "price" : {
+                "type" : "integer"
+              }
+            },
+            "required" : [ "productId", "quantity", "price" ]
+          }
+        },
+        "total" : {
+          "type" : "integer"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "creationDate" : {
+          "type" : "string"
+        },
+        "campaignId" : {
+          "type" : [ "string", "null" ]
+        }
+      },
+      "required" : [ "accountName", "total", "status", "creationDate" ]
+    },
+    "getOrderResponse" : {
+      "type" : "object",
+      "properties" : {
+        "ORDERID" : {
+          "type" : "integer"
+        },
+        "ACCOUNTNAME" : {
+          "type" : "string"
+        },
+        "TOTAL" : {
+          "type" : "integer"
+        },
+        "STATUS" : {
+          "type" : "string"
+        },
+        "CREATIONDATE" : {
+          "type" : "string"
+        },
+        "CAMPAIGNID" : {
+          "type" : "string"
+        },
+        "accountDetails" : {
+          "type" : "object",
+          "properties" : {
+            "accountName" : {
+              "type" : "string"
+            },
+            "salesforceId" : {
+              "type" : "string"
+            },
+            "billingCountry" : {
+              "type" : "string"
+            },
+            "billingPostalCode" : {
+              "type" : "string"
+            }
+          }
+        },
+        "lineItems" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "PRODUCTID" : {
+                "type" : "integer"
+              },
+              "QUANTITY" : {
+                "type" : "integer"
+              },
+              "PRICE" : {
+                "type" : "integer"
+              },
+              "productName" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "SKU" : {
+                "type" : "string"
+              },
+              "listPrice" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "postOrderResponse" : {
+      "type" : "object",
+      "properties" : {
+        "result" : {
+          "type" : "string"
+        },
+        "orderId" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "deleteOrderResponse" : {
+      "type" : "object",
+      "properties" : {
+        "result" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
