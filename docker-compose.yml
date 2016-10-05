@@ -16,7 +16,8 @@ services:
 
   # Creating the IIB service from an image stored in Docker Hub and exposing ports 1414(MQ Admin), 4414(IIB Admin) and 7800(IIB Runtime).
   iib-op:
-    image: sg248351/iibmq-onpremise
+    build: 99_docker/iib/
+    image: sg248351/iib-op
     depends_on:
       - mq
     ports:
