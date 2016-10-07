@@ -10,6 +10,9 @@ MAINTAINER Carsten Bornert carsten.bornert@uk.ibm.com
 
 ADD jaas.conf /var/mqsi/kafka/jaas.conf
 ADD log4j.properties /var/mqsi/kafka/log4j.properties
+ADD test* /home/iibuser/
 USER root
 RUN chown root:mqbrkrs /var/mqsi/kaf* -R
+RUN chown iibuser:mqbrkrs /home/iibuser/test*
+RUN chmod +x /home/iibuser/testme.sh
 USER iibuser
