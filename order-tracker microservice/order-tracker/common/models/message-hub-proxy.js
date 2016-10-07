@@ -2,7 +2,7 @@
 var MessageHub = require('message-hub-rest');
 var events = require('events');
 
-module.exports = function(Messagehubproxy) {s
+module.exports = function(Messagehubproxy) {
 
   var defaultProperties =
   {
@@ -62,6 +62,9 @@ module.exports = function(Messagehubproxy) {s
     var consumer;
     var receivedMessage = 0;
     var mhEventEmitter = new events.EventEmitter();
+    mhEventEmitter.on('error',function(err){
+      console.error(err);
+    });
     cb(null,mhEventEmitter);
     hubInstance.consume('order-tracker-group', 'order-tracker-c1', {'auto.offset.reset':'largest'})
       .then(function(response) {
@@ -73,7 +76,7 @@ module.exports = function(Messagehubproxy) {s
               mhEventEmitter.emit('order-event',data);
             })
             .fail(function(error){
-              throw new Error(error);
+              console.error(error);
             })
         }, 10000);
       })
