@@ -13,6 +13,8 @@ services:
       - LICENSE=${LICENSE}
     networks:
       sc3-net:
+        aliases:
+          - mq
 
   # Creating the IIB service from an image stored in Docker Hub and exposing ports 1414(MQ Admin), 4414(IIB Admin) and 7800(IIB Runtime).
   iib-op:
