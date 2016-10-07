@@ -27,9 +27,9 @@ module.exports = function(Messageconsumer) {
             };
             Messageconsumer.app.models.Order.findById(myevent.orderId,function(err,instance){
               if (err){
-                throw err;
+                emitter.emit('error',err);
               } else {
-                if (instance == null){
+                if (!instance){
                   Messageconsumer.app.models.Order.create(newOder, function(err, object){
                     console.log("new order created: " + JSON.stringify(object));
                   });
