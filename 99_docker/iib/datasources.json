@@ -1,0 +1,7 @@
+{
+  "mongoDB": {
+    "url": "mongodb://<username>:<password>@<host>:<port>/oder-tracker?ssl=true",
+    "name": "mongoDB",
+    "connector": "mongodb"
+  }
+}
