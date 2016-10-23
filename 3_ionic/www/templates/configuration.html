@@ -1,0 +1,26 @@
+<ion-view view-title="Settings">
+  <ion-header-bar>
+    <h1 class="title">Set App Endpoints</h1>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="setEndpoint()">
+      <div class="list card">
+        <label class="item item-input">
+          <span class="input-label">API Endpoint</span>
+          <input type="text" ng-model="api.endpoint">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Client Id</span>
+          <input type="text" ng-model="api.clientId">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Client Secret</span>
+          <input type="text" ng-model="api.secret">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Set End Point</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

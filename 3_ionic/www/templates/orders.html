@@ -1,0 +1,36 @@
+<ion-view view-title="Orders">
+  <ion-content>
+
+    <h4 style="padding-left:10px">Summary</h4>
+
+    <div class="list card">
+
+      <a class="item item-icon-left positive">
+        <i class="icon ion-ios-albums"></i>
+        Total Orders: {{totalOrders}}
+      </a>
+
+
+    </div>
+
+    <h4 style="padding-left:10px">Orders</h4>
+
+
+    <div class="list card" ng-repeat="order in orders">
+
+           <a class="item item-icon-left positive" href="#/app/orderDetails?theId={{order.orderId}}&amp;description={{order.description}}">
+             <i class="icon ion-cube"></i>
+             {{order.orderId}}
+           </a>
+
+
+         <div class="item">
+           <h3>Customer: {{order.customerId}}</h3>
+           <p>Item: {{order.description}}</p>
+         </div>
+
+
+       </div>
+
+     </ion-content>
+</ion-view>

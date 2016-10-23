@@ -1,0 +1,58 @@
+<ion-view view-title="Order Details">
+  <ion-content class="padding">
+      <h4 align="center">{{orderDescription}}</h4>
+      <h6 align="center" style="color:grey">Order {{orderId}}</h6>
+      <section id="cd-timeline" class="cd-container">
+        <div ng-repeat="event in orderDetails">
+          <div class="cd-timeline-block">
+            <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
+
+          <div ng-if="event.type == 'paid'">
+            <div class="cd-timeline-icon text-center energized">
+              <i class="ion-card timelineIcon" ng-if="(event.type=='paid')"></i>
+              <i class="ion-email-unread timelineIcon" ng-if="event.type=='submitted'"></i>
+              <i class="ion-earth timelineIcon" ng-if="event.type=='shipped'"></i>
+              <i class="ion-ios-home timelineIcon" ng-if="event.type=='received'"></i>
+            </div>
+          </div>
+
+          <div ng-if="event.type == 'submitted'">
+            <div class="cd-timeline-icon text-center assertive">
+              <i class="ion-card timelineIcon" ng-if="(event.type=='paid')"></i>
+              <i class="ion-email-unread timelineIcon" ng-if="event.type=='submitted'"></i>
+              <i class="ion-earth timelineIcon" ng-if="event.type=='shipped'"></i>
+              <i class="ion-ios-home timelineIcon" ng-if="event.type=='received'"></i>
+            </div>
+          </div>
+
+          <div ng-if="event.type == 'shipped'">
+            <div class="cd-timeline-icon text-center positive">
+              <i class="ion-card timelineIcon" ng-if="(event.type=='paid')"></i>
+              <i class="ion-email-unread timelineIcon" ng-if="event.type=='submitted'"></i>
+              <i class="ion-earth timelineIcon" ng-if="event.type=='shipped'"></i>
+              <i class="ion-ios-home timelineIcon" ng-if="event.type=='received'"></i>
+            </div>
+
+          </div>
+
+          <div ng-if="event.type == 'received'">
+            <div class="cd-timeline-icon text-center balanced">
+              <i class="ion-card timelineIcon" ng-if="(event.type=='paid')"></i>
+              <i class="ion-email-unread timelineIcon" ng-if="event.type=='submitted'"></i>
+              <i class="ion-earth timelineIcon" ng-if="event.type=='shipped'"></i>
+              <i class="ion-ios-home timelineIcon" ng-if="event.type=='received'"></i>
+            </div>
+          </div>
+
+
+          <div class="cd-timeline-content padding dark">
+            <h5 class="marginBottom0 marginTop0">{{event.type}}</h5>
+            <p class="marginTop5 cd-author">{{event.time | date: "d MMM yy hh:mm"}}</p>
+            <p  style="font-size: 70%; color: grey; padding-top:1px">Event Reference: {{event.eventId}}</p>
+          </div>
+
+          </div>
+        </div>
+      </section>
+  </ion-content>
+</ion-view>
