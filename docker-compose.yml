@@ -16,6 +16,16 @@ services:
         aliases:
           - mq
 
+  mongodb:
+    image: mongo
+    command: [--auth]
+    ports:
+      - "27017"
+    networks:
+      sc3-net:
+        aliases:
+          - mongo
+
   # Creating the IIB service from an image stored in Docker Hub and exposing ports 1414(MQ Admin), 4414(IIB Admin) and 7800(IIB Runtime).
   iib-op:
     build: 99_docker/iib/
@@ -28,6 +38,8 @@ services:
       - "7800"
     environment:
       - LICENSE=${LICENSE}
+      - MSGHUBUSER=${MSGHUBUSER}
+      - MSGHUBPASS=${MSGHUBPASS}
     networks:
       sc3-net:
         aliases:
